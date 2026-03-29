@@ -47,7 +47,8 @@ Três botões empilhados, estilo igual à frase da Porta de Durin (Palatino, it�
 ## Animações / Efeitos
 - Entrada: zoom da imagem (`scale 0.92 → 1.08`) + fade-in dos botões com delay de 1s
 - Hover nos botões: transição suave de cor e glow (0.3s)
-- Easter egg: `foolAppear` (0.4s) → exibe 6s → `foolDisappear` (0.6s)
+- Easter egg: aparece esse gif no meio da tela https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjAyc2pydXh2c21idTJmZDZqZWZqdTVkZDU0Z2NxNWw4aDZkMG83NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9BdJix0bPLujm/giphy.gif e logo em seguida `foolAppear` (0.4s) → exibe 6s → `foolDisappear` (0.6s)
+
 
 ## Navegação
 - Convite → `/routes/convite/`
