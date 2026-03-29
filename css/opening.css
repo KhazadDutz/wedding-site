@@ -14,6 +14,7 @@ html, body {
     width: 100%;
     min-height: 100dvh;
     overflow: hidden;
+    overscroll-behavior: none;
     font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
     background: #070508;
 }
@@ -102,9 +103,15 @@ html, body {
     position: relative;
     display: flex;
     flex-shrink: 0;
-    /* largura relativa ao viewport, máx 460px */
-    width: min(72vw, 460px);
-    /* altura mantém proporção 3:4 da imagem, nunca passa de 62vh */
+    /*
+     * min() com três valores:
+     * 1. 72vw — nunca mais largo que 72% da tela
+     * 2. 460px — cap absoluto
+     * 3. calc(62vh * 0.75) — quando max-height (62vh) clampa a altura,
+     *    esta restrição de largura impede distorção da proporção 3:4.
+     *    Sem isso, aspect-ratio não ajusta a largura retroativamente.
+     */
+    width: min(72vw, 460px, calc(62vh * 0.75));
     aspect-ratio: 3 / 4;
     max-height: 62vh;
     z-index: 13;
@@ -163,8 +170,8 @@ html, body {
     background: rgba(0, 0, 0, 0.55);
     border-top: 1px solid rgba(192, 160, 96, 0.2);
     border-bottom: 1px solid rgba(192, 160, 96, 0.2);
-    /* mesma largura que a porta */
-    width: min(72vw, 460px);
+    /* mesma largura que a porta — mesmo min() para manter alinhamento */
+    width: min(72vw, 460px, calc(62vh * 0.75));
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.8s ease, visibility 0.8s ease;
@@ -181,6 +188,7 @@ html, body {
     line-height: 1.8;
     letter-spacing: 0.05em;
     color: transparent;
+    user-select: none;
     background: linear-gradient(90deg,
         transparent 0%,
         #c8a84b 20%,
@@ -220,8 +228,8 @@ html, body {
     align-items: center;
     gap: 0.5rem;
     z-index: 14;
-    /* mesma largura que a porta */
-    width: min(72vw, 460px);
+    /* mesma largura que a porta — mesmo min() para manter alinhamento */
+    width: min(72vw, 460px, calc(62vh * 0.75));
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.8s ease, visibility 0.8s ease;
@@ -297,6 +305,7 @@ html, body {
     visibility: hidden;
     min-height: 2.4em;
     padding: 0 0.5rem;
+    user-select: none;
 }
 
 #error-message.visible {
@@ -325,7 +334,8 @@ html, body {
     #door-container,
     #phrase-container,
     #input-container {
-        width: 90vw;
+        /* min(90vw, …) para manter proporção 3:4 quando 58vh for limitante */
+        width: min(90vw, calc(58vh * 0.75));
     }
 
     #door-container {
@@ -345,6 +355,17 @@ html, body {
 
 /* ===== LANDSCAPE MOBILE ===== */
 @media (max-height: 500px) and (orientation: landscape) {
+    /*
+     * Bug fix: sem este ajuste, o width explícito (min(72vw, 460px)) entra
+     * em conflito com o max-height, distorcendo a imagem da porta.
+     * Solução: forçar width = 75% do max-height para manter proporção 3:4.
+     */
+    #door-container,
+    #phrase-container,
+    #input-container {
+        width: calc(50vh * 0.75);
+    }
+
     #door-container {
         max-height: 50vh;
     }
@@ -355,5 +376,6 @@ html, body {
 
     #phrase {
         line-height: 1.5;
+        font-size: clamp(0.7rem, 3.5vh, 0.9rem);
     }
 }
