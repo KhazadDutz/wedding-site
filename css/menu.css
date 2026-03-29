@@ -126,8 +126,14 @@
 #fool-gif {
     display: block;
     width: min(280px, 70vw);
-    margin: 0 auto 1.5rem;
+    margin: 0 auto;
     border-radius: 4px;
+    transition: opacity 0.4s ease;
+}
+
+#fool-gif.hidden-phase {
+    opacity: 0;
+    pointer-events: none;
 }
 
 #fool-text {
@@ -135,6 +141,11 @@
     font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
     padding: 2rem;
     max-width: 90vw;
+    transition: opacity 0.4s ease;
+}
+
+#fool-text.hidden-phase {
+    opacity: 0;
 }
 
 .fool-line-1 {
