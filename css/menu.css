@@ -168,8 +168,8 @@
     to   { text-shadow: 0 0 25px rgba(212, 121, 10, 1),   0 0 60px rgba(255, 120, 0, 0.7); }
 }
 
-/* ===== MOBILE PORTRAIT ===== */
-@media (max-width: 600px) and (orientation: portrait) {
+/* ===== MOBILE PORTRAIT (≤ 480px) — usa menu_mobile.png ===== */
+@media (max-width: 480px) and (orientation: portrait) {
     /* puxa enquadramento para a direita — Pippin está em ~83% da imagem */
     #menu-image {
         object-position: 88% center;
