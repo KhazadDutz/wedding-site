@@ -173,7 +173,7 @@
     /* imagem inteira visível, sem cortes — barras invisíveis pois fundo é #050305 */
     #menu-image {
         object-fit: contain;
-        object-position: center center;
+        object-position: center 85%;
     }
 
     /* easter egg acompanha posição do Pippin na imagem contida */
