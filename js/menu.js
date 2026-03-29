@@ -24,7 +24,7 @@ easterEggBtn.addEventListener('click', () => {
             foolOverlay.classList.add('hidden');
             foolOverlay.classList.remove('fading-out');
         }, 600);
-    }, 4000);
+    }, 6000);
 });
 
 // Função chamada pelo opening.js quando a porta abre

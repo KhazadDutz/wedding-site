@@ -107,15 +107,16 @@ function openDoor() {
         doorContainer.classList.add('door-open');
     }, 600);
 
-    // Fade-out do overlay
+    // Após porta totalmente aberta, zoom de entrada pelo vão
+    const doorFullyOpen = 600 + TIMING.doorOpenDuration + 200;
     setTimeout(() => {
-        overlay.classList.add('fade-out');
-    }, TIMING.overlayFadeDelay + 600);
+        doorContainer.classList.add('door-enter');
+    }, doorFullyOpen);
 
-    // Redireciona para o menu após o fade-out completar
+    // Redirect ao fim do zoom (900ms de animação)
     setTimeout(() => {
-        window.location.href = 'menu.html';
-    }, TIMING.overlayFadeDelay + 1800);
+        window.location.href = 'menu/';
+    }, doorFullyOpen + 900);
 }
 
 // ===== MOSTRAR ERRO =====

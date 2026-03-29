@@ -66,18 +66,25 @@
     border-radius: 3px;
     text-shadow: 0 0 10px rgba(200, 168, 75, 0.5);
     transition: color 0.3s, border-color 0.3s, text-shadow 0.3s, background 0.3s;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.menu-btn:hover {
-    color: #f0e0b0;
-    border-color: rgba(192, 160, 96, 0.85);
-    background: rgba(4, 2, 8, 0.85);
-    text-shadow: 0 0 18px rgba(200, 168, 75, 0.9),
-                 0 0 30px rgba(200, 168, 75, 0.4);
+/* hover apenas em dispositivos com ponteiro (não touch) */
+@media (hover: hover) {
+    .menu-btn:hover {
+        color: #f0e0b0;
+        border-color: rgba(192, 160, 96, 0.85);
+        background: rgba(4, 2, 8, 0.85);
+        text-shadow: 0 0 18px rgba(200, 168, 75, 0.9),
+                     0 0 30px rgba(200, 168, 75, 0.4);
+    }
 }
 
 .menu-btn:active {
     transform: scale(0.97);
+    color: #f0e0b0;
+    border-color: rgba(192, 160, 96, 0.85);
 }
 
 /* ===== EASTER EGG — botão invisível sobre Pippin + poço ===== */
@@ -92,6 +99,8 @@
     cursor: default;
     padding: 0;
     z-index: 5;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 /* ===== FOOL OF A TOOK OVERLAY ===== */
@@ -159,7 +168,23 @@
     to   { text-shadow: 0 0 25px rgba(212, 121, 10, 1),   0 0 60px rgba(255, 120, 0, 0.7); }
 }
 
-/* ===== MOBILE ===== */
+/* ===== MOBILE PORTRAIT ===== */
+@media (max-width: 600px) and (orientation: portrait) {
+    /* puxa a imagem para a direita para manter Pippin visível */
+    #menu-image {
+        object-position: 72% center;
+    }
+
+    /* easter egg acompanha o Pippin deslocado */
+    #easter-egg-btn {
+        right: 0%;
+        bottom: 8%;
+        width: 22%;
+        height: 28%;
+    }
+}
+
+/* ===== MOBILE (geral, <= 480px) ===== */
 @media (max-width: 480px) {
     #menu-buttons {
         width: 82vw;
@@ -170,11 +195,17 @@
         font-size: 1rem;
         padding: 0.7rem 1rem;
     }
+}
 
-    #easter-egg-btn {
-        right: 0%;
-        bottom: 8%;
-        width: 22%;
-        height: 28%;
+/* ===== LANDSCAPE MOBILE ===== */
+@media (max-height: 500px) and (orientation: landscape) {
+    #menu-buttons {
+        gap: 8px;
+        width: 50vw;
+    }
+
+    .menu-btn {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
     }
 }

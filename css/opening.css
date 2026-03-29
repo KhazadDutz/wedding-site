@@ -5,11 +5,17 @@
     box-sizing: border-box;
 }
 
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
 html, body {
     width: 100%;
     min-height: 100dvh;
     overflow: hidden;
     font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    background: #070508;
 }
 
 
@@ -142,6 +148,12 @@ html, body {
     transition: opacity 0.3s ease;
 }
 
+/* ===== EFEITO DE ENTRADA — zoom no vão da porta ===== */
+#door-container.door-enter {
+    transform: scale(15);
+    transition: transform 0.9s cubic-bezier(0.6, 0, 1, 0.6);
+}
+
 /* ===== FRASE ===== */
 #phrase-container {
     flex-shrink: 0;
@@ -233,13 +245,14 @@ html, body {
     border-radius: 3px;
     color: #e8d5a3;
     font-family: inherit;
-    font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+    font-size: 1rem; /* mínimo 16px — evita zoom automático no iOS */
     padding: 0.55rem 1.4rem;
     outline: none;
     text-align: center;
     width: min(60vw, 230px);
     letter-spacing: 0.15em;
     transition: border-color 0.3s, box-shadow 0.3s;
+    touch-action: manipulation;
 }
 
 #password-input:focus {
@@ -326,7 +339,6 @@ html, body {
 
     #password-input {
         width: 70vw;
-        font-size: 1rem;
         letter-spacing: 0.1em;
     }
 }
