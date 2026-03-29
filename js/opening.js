@@ -115,7 +115,7 @@ function openDoor() {
 
     // Redirect ao fim do zoom (900ms de animação)
     setTimeout(() => {
-        window.location.href = 'menu/';
+        window.location.href = 'routes/menu/';
     }, doorFullyOpen + 900);
 }
 

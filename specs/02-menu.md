@@ -1,5 +1,5 @@
 # Página 2 — Menu (Escolha das Opções)
-endpoint - https://khazaddutz.github.io/wedding-site/menu/
+endpoint - https://khazaddutz.github.io/wedding-site/routes/menu/
 arquivo - `menu/index.html`
 
 ## Descrição
@@ -23,9 +23,9 @@ Três botões empilhados, estilo igual à frase da Porta de Durin (Palatino, it�
 
 | Botão | Destino |
 |---|---|
-| Convite | `/convite/` |
-| Deixe sua Mensagem | `/mensagens/` |
-| Lista de Presentes | `/presentes/` |
+| Convite | `/routes/convite/` |
+| Deixe sua Mensagem | `/routes/mensagens/` |
+| Lista de Presentes | `/routes/presentes/` |
 
 - Fundo semitransparente escuro, borda dourada sutil
 - Hover: cor mais clara + glow dourado intenso
@@ -48,13 +48,13 @@ Três botões empilhados, estilo igual à frase da Porta de Durin (Palatino, it�
 - Easter egg: `foolAppear` (0.4s) → exibe 4s → `foolDisappear` (0.6s)
 
 ## Navegação
-- Convite → `/convite/`
-- Deixe sua Mensagem → `/mensagens/`
-- Lista de Presentes → `/presentes/`
+- Convite → `/routes/convite/`
+- Deixe sua Mensagem → `/routes/mensagens/`
+- Lista de Presentes → `/routes/presentes/`
 - Easter egg → overlay local (não navega)
 
 ## Estrutura de arquivos
-- `menu/index.html` — HTML da página
+- `routes/menu/index.html` — HTML da página
 - `css/menu.css` — estilos
 - `js/menu.js` — easter egg + entrada da cena
 - `images/menu/3gatesgandalfwithtook.png` — imagem de fundo

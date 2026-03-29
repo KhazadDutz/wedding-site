@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portas de Durin</title>
-    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../../css/menu.css">
 </head>
 <body>
 
     <div id="behind-door">
         <div id="menu-scene">
-            <img id="menu-image" src="../images/menu/3gatesgandalfwithtook.png" alt="Moria">
+            <picture>
+                <source media="(max-width: 767px)" srcset="../../images/menu/menu_mobile.png">
+                <img id="menu-image" src="../../images/menu/3gatesgandalfwithtook.png" alt="Moria">
+            </picture>
 
             <!-- Botões de navegação -->
             <div id="menu-buttons">
@@ -34,6 +37,6 @@
         </div>
     </div>
 
-    <script src="../js/menu.js"></script>
+    <script src="../../js/menu.js"></script>
 </body>
 </html>

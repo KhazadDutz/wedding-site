@@ -7,7 +7,7 @@ Tela de abertura inspirada nas Portas de Durin do Senhor dos Anéis. O usuário 
 
 A imagem `images/opening/door_of_durin.png` inicia em tons de cinza. Após ~5 segundos as runas acendem proceduralmente via CSS (brilho dourado/azul). Em seguida a frase aparece abaixo da porta. Depois de mais ~6 segundos o input aparece.
 
-Ao digitar a palavra correta, a porta abre com animação, o overlay faz fade-out e o browser é redirecionado para `/menu/`.
+Ao digitar a palavra correta, a porta abre com animação, o overlay faz fade-out e o browser é redirecionado para `/routes/menu/`.
 
 ## Layout
 - Fullscreen, fundo escuro `#070508` com gradiente radial (tons roxo-escuro/preto)
@@ -70,7 +70,7 @@ Ao digitar a palavra correta, a porta abre com animação, o overlay faz fade-ou
 4. Fade-out do overlay e `window.location.href = 'menu/'` simultâneos
 
 ## Navegação
-- Senha correta → porta abre → fade-out + redirect para `/menu/`
+- Senha correta → porta abre → fade-out + redirect para `/routes/menu/`
 - Senha errada → mensagem de erro + shake, input limpo
 
 ## Estrutura de arquivos
