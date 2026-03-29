@@ -1,6 +1,6 @@
 # Página 2 — Menu (Escolha das Opções)
 endpoint - https://khazaddutz.github.io/wedding-site/routes/menu/
-arquivo - `menu/index.html`
+arquivo - `routes/menu/index.html`
 
 ## Descrição
 Página revelada após a abertura das Portas de Durin. A imagem de Gandalf nas três portas de Moria preenche a tela com zoom suave de entrada. Três botões de navegação aparecem centralizados sobre a imagem.
@@ -14,9 +14,11 @@ Página revelada após a abertura das Portas de Durin. A imagem de Gandalf nas t
 ## Elementos
 
 ### Imagem de Fundo
-- Arquivo: `images/menu/3gatesgandalfwithtook.png`
-- Gandalf com cajado aceso, três arcos ao fundo, Pippin no canto inferior direito
+- Desktop/tablet (`> 767px`): `images/menu/3gatesgandalfwithtook.png` — Gandalf com cajado aceso, três arcos ao fundo, Pippin no canto inferior direito
+- Mobile (`≤ 767px`): `images/menu/menu_mobile.png` — composição portrait 1024×1536, Pippin e poço no centro-direito
+- Alternância via elemento `<picture>` com `<source media="(max-width: 767px)">`
 - Inicia `brightness(0.6)`, vai para `brightness(0.85)` com a entrada
+- Mobile portrait: `object-position: 72% center` para manter Pippin+poço visíveis
 
 ### Botões de Navegação
 Três botões empilhados, estilo igual à frase da Porta de Durin (Palatino, itálico, dourado):
@@ -45,7 +47,7 @@ Três botões empilhados, estilo igual à frase da Porta de Durin (Palatino, it�
 ## Animações / Efeitos
 - Entrada: zoom da imagem (`scale 0.92 → 1.08`) + fade-in dos botões com delay de 1s
 - Hover nos botões: transição suave de cor e glow (0.3s)
-- Easter egg: `foolAppear` (0.4s) → exibe 4s → `foolDisappear` (0.6s)
+- Easter egg: `foolAppear` (0.4s) → exibe 6s → `foolDisappear` (0.6s)
 
 ## Navegação
 - Convite → `/routes/convite/`
@@ -57,10 +59,11 @@ Três botões empilhados, estilo igual à frase da Porta de Durin (Palatino, it�
 - `routes/menu/index.html` — HTML da página
 - `css/menu.css` — estilos
 - `js/menu.js` — easter egg + entrada da cena
-- `images/menu/3gatesgandalfwithtook.png` — imagem de fundo
+- `images/menu/3gatesgandalfwithtook.png` — imagem de fundo (desktop/tablet)
+- `images/menu/menu_mobile.png` — imagem de fundo (mobile)
 
 ## Status
-**Concluído.** Pendente de commit/push.
+**Concluído.**
 
 ## Observações
 - Roteamento sem `.html` via estrutura `pasta/index.html` — não usar libs de roteamento

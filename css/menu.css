@@ -170,7 +170,12 @@
 
 /* ===== MOBILE PORTRAIT ===== */
 @media (max-width: 600px) and (orientation: portrait) {
-    /* easter egg: ajustar posição conforme composição da menu_mobile.png */
+    /* puxa o enquadramento para a direita para manter Pippin+poço visíveis */
+    #menu-image {
+        object-position: 72% center;
+    }
+
+    /* easter egg acompanha o Pippin deslocado */
     #easter-egg-btn {
         right: 0%;
         bottom: 8%;
