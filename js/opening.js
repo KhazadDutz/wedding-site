@@ -107,6 +107,11 @@ function openDoor() {
         doorContainer.classList.add('door-open');
     }, 600);
 
+    // Inicia zoom do menu logo antes do overlay sumir
+    setTimeout(() => {
+        if (typeof triggerMenuEntrance === 'function') triggerMenuEntrance();
+    }, TIMING.overlayFadeDelay + 200);
+
     // Fade-out do overlay revelando o menu por trás
     setTimeout(() => {
         overlay.classList.add('fade-out');
