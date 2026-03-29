@@ -35,7 +35,11 @@ window.addEventListener('DOMContentLoaded', () => {
     // Exibe o input e inicia ciclo do placeholder
     setTimeout(() => {
         inputContainer.classList.add('visible');
-        passwordInput.focus();
+        // Em touch devices o focus programático não exibe o teclado no iOS
+        // e abre inesperadamente no Android — o usuário toca para focar
+        if (!('ontouchstart' in window)) {
+            passwordInput.focus();
+        }
         startPlaceholderCycle();
     }, TIMING.inputDelay);
 });

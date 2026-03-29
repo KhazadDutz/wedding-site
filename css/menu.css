@@ -1,3 +1,11 @@
+/* ===== RESET & BASE ===== */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    overscroll-behavior: none;
+}
+
 /* ===== MENU — BEHIND DOOR ===== */
 
 #behind-door {
@@ -143,6 +151,7 @@
     padding: 2rem;
     max-width: 90vw;
     transition: opacity 0.4s ease;
+    user-select: none;
 }
 
 #fool-text.hidden-phase {
@@ -187,8 +196,8 @@
     to   { text-shadow: 0 0 25px rgba(212, 121, 10, 1),   0 0 60px rgba(255, 120, 0, 0.7); }
 }
 
-/* ===== MOBILE PORTRAIT (≤ 480px) — usa menu_mobile.png ===== */
-@media (max-width: 480px) and (orientation: portrait) {
+/* ===== MOBILE PORTRAIT (≤ 767px) — usa menu_mobile.png ===== */
+@media (max-width: 767px) and (orientation: portrait) {
     /* imagem inteira visível, sem cortes — barras invisíveis pois fundo é #050305 */
     #menu-image {
         object-fit: contain;
@@ -213,7 +222,8 @@
 
     .menu-btn {
         font-size: 1rem;
-        padding: 0.7rem 1rem;
+        padding: 0.75rem 1rem;
+        min-height: 44px; /* Apple HIG / WCAG touch target mínimo */
     }
 }
 
@@ -227,5 +237,6 @@
     .menu-btn {
         font-size: 0.9rem;
         padding: 0.5rem 1rem;
+        min-height: 44px; /* Apple HIG touch target */
     }
 }
