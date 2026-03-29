@@ -170,9 +170,14 @@
 
 /* ===== MOBILE PORTRAIT ===== */
 @media (max-width: 600px) and (orientation: portrait) {
-    /* puxa o enquadramento para a direita para manter Pippin+poço visíveis */
+    /* puxa enquadramento para a direita — Pippin está em ~83% da imagem */
     #menu-image {
-        object-position: 72% center;
+        object-position: 88% center;
+    }
+
+    /* reduz zoom para não cortar a borda direita onde está o Pippin */
+    #behind-door.menu-visible #menu-image {
+        transform: scale(1.03);
     }
 
     /* easter egg acompanha o Pippin deslocado */
