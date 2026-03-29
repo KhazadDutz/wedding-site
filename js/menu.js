@@ -4,6 +4,11 @@ const behindDoor    = document.getElementById('behind-door');
 const easterEggBtn  = document.getElementById('easter-egg-btn');
 const foolOverlay   = document.getElementById('fool-overlay');
 
+// Ativa a entrada do menu ao carregar a página
+window.addEventListener('DOMContentLoaded', () => {
+    triggerMenuEntrance();
+});
+
 let foolTimeout = null;
 
 // Easter egg: "Fool of a Took"

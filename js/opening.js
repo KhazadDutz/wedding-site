@@ -1,8 +1,8 @@
 // ===== CONFIGURAÇÕES DE TIMING (ms) =====
 const TIMING = {
-    runeGlowStart:  8000,   // início do brilho nas runas (junto com a frase)
-    phraseDelay:    8000,   // frase começa a aparecer
-    inputDelay:     14000,  // input aparece após a frase
+    runeGlowStart:  5000,   // início do brilho nas runas (junto com a frase)
+    phraseDelay:    5000,   // frase começa a aparecer
+    inputDelay:     11000,  // input aparece após a frase (6s depois)
     doorOpenDuration: 1800, // duração da animação da porta abrindo
     overlayFadeDelay: 1900, // fade-out do overlay após porta abrir
 };
@@ -107,18 +107,14 @@ function openDoor() {
         doorContainer.classList.add('door-open');
     }, 600);
 
-    // Inicia zoom do menu logo antes do overlay sumir
-    setTimeout(() => {
-        if (typeof triggerMenuEntrance === 'function') triggerMenuEntrance();
-    }, TIMING.overlayFadeDelay + 200);
-
-    // Fade-out do overlay revelando o menu por trás
+    // Fade-out do overlay
     setTimeout(() => {
         overlay.classList.add('fade-out');
     }, TIMING.overlayFadeDelay + 600);
 
+    // Redireciona para o menu após o fade-out completar
     setTimeout(() => {
-        overlay.style.display = 'none';
+        window.location.href = 'menu.html';
     }, TIMING.overlayFadeDelay + 1800);
 }
 

@@ -3,7 +3,9 @@
 ## Descrição
 Tela de abertura inspirada nas Portas de Durin do Senhor dos Anéis. O usuário precisa digitar a palavra certa para "abrir" as portas e acessar o convite.
 
-A imagem `images/opening/door_of_durin.png` inicia em tons de cinza. Após ~8 segundos as runas acendem proceduralmente via CSS (brilho dourado/azul). Em seguida a frase aparece abaixo da porta. Depois de mais ~6 segundos o input aparece.
+A imagem `images/opening/door_of_durin.png` inicia em tons de cinza. Após ~5 segundos as runas acendem proceduralmente via CSS (brilho dourado/azul). Em seguida a frase aparece abaixo da porta. Depois de mais ~6 segundos o input aparece.
+
+Ao digitar a palavra correta no input, a porta abre com animação e o overlay faz fade-out, redirecionando para `menu.html` (página separada).
 
 ## Layout
 - Fullscreen, fundo escuro com gradiente radial (tons roxo-escuro/preto)
@@ -53,9 +55,9 @@ A imagem `images/opening/door_of_durin.png` inicia em tons de cinza. Após ~8 se
 ### Sequência de timing (ms)
 | Evento | Delay |
 |---|---|
-| Runas acendem | 8000ms |
-| Frase aparece | 8000ms (simultâneo) |
-| Input aparece | 14000ms |
+| Runas acendem | 5000ms |
+| Frase aparece | 5000ms (simultâneo) |
+| Input aparece | 11000ms |
 | Porta abre (animação) | 1800ms |
 | Fade-out do overlay | 1900ms após porta abrir |
 
@@ -70,9 +72,12 @@ A imagem `images/opening/door_of_durin.png` inicia em tons de cinza. Após ~8 se
 - Senha correta → porta abre → overlay some → página de menu visível por baixo (`#behind-door`)
 - Senha errada → mensagem de erro + shake, input limpo
 
+## Navegação
+- Senha correta → porta abre → fade-out → `window.location.href = 'menu.html'`
+- Senha errada → mensagem de erro + shake, input limpo
+
 ## Status
 **Concluído e deployado.** Commitado e disponível em `https://khazaddutz.github.io/wedding-site`.
 
 ## Observações
-- O `#behind-door` é apenas um placeholder por enquanto (`<p>Bem-vindos</p>`); será substituído pelo menu real
 - Imagens do LOTR podem ter restrições de copyright — considerar tornar o repositório privado ou usar alternativas livres
