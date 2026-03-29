@@ -14,3 +14,10 @@
 - Deve ficar online até **15 de agosto de 2026**
 - Backend para confirmação de presença via **Google Sheets + Google Apps Script**
 - Hospedagem via **GitHub Pages**
+
+## Regras de Desenvolvimento
+
+### Imagens
+- **Antes de criar ou editar qualquer página**, ler o arquivo `images/config/image-config.md`
+- Ele define breakpoints, nomenclatura, configurações de `object-fit`/`object-position` e dimensões recomendadas para mobile e desktop
+- Toda nova página com imagem de fundo deve seguir o padrão definido nesse arquivo
