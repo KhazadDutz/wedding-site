@@ -159,30 +159,6 @@
     to   { text-shadow: 0 0 25px rgba(212, 121, 10, 1),   0 0 60px rgba(255, 120, 0, 0.7); }
 }
 
-/* ===== GANDALF GIF ===== */
-#gandalf-gif {
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-    z-index: 4;
-    opacity: 0;
-    transition: opacity 1.2s ease;
-    border-radius: 6px;
-    overflow: hidden;
-    /* Escala para caber em telas menores sem quebrar o layout */
-    transform-origin: bottom left;
-    transform: scale(0.55);
-}
-
-#behind-door.menu-visible #gandalf-gif {
-    opacity: 0.85;
-    transition-delay: 1.8s;
-}
-
-#gandalf-gif iframe {
-    display: block;
-}
-
 /* ===== MOBILE ===== */
 @media (max-width: 480px) {
     #menu-buttons {
@@ -200,9 +176,5 @@
         bottom: 8%;
         width: 22%;
         height: 28%;
-    }
-
-    #gandalf-gif {
-        transform: scale(0.38);
     }
 }

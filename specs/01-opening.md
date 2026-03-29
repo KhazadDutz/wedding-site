@@ -1,11 +1,12 @@
 # Página 1 — Opening (Abertura do Convite)
+endpoint - https://khazaddutz.github.io/wedding-site/
 
 ## Descrição
 Tela de abertura inspirada nas Portas de Durin do Senhor dos Anéis. O usuário precisa digitar a palavra certa para "abrir" as portas e acessar o convite.
 
 A imagem `images/opening/door_of_durin.png` inicia em tons de cinza. Após ~5 segundos as runas acendem proceduralmente via CSS (brilho dourado/azul). Em seguida a frase aparece abaixo da porta. Depois de mais ~6 segundos o input aparece.
 
-Ao digitar a palavra correta no input, a porta abre com animação e o overlay faz fade-out, redirecionando para `menu.html` (página separada).
+Ao digitar a palavra correta no input, a porta abre com animação e o overlay faz fade-out, redirecionando para `menu.html` (endpoint: `/wedding-site/menu`).
 
 ## Layout
 - Fullscreen, fundo escuro com gradiente radial (tons roxo-escuro/preto)
@@ -65,19 +66,15 @@ Ao digitar a palavra correta no input, a porta abre com animação e o overlay f
 1. Input e frase fazem fade-out (0.5s)
 2. Classe `door-awakening` ativa brilho retangular azul intenso
 3. Após 600ms: classe `door-open` → metades giram 3D (`perspective rotateY ±105deg`)
-4. Overlay faz fade-out revelando o menu por trás
-5. Overlay recebe `display: none` após a transição
+4. Overlay faz fade-out
+5. `window.location.href = 'menu.html'` após transição completa
 
 ## Navegação
-- Senha correta → porta abre → overlay some → página de menu visível por baixo (`#behind-door`)
-- Senha errada → mensagem de erro + shake, input limpo
-
-## Navegação
-- Senha correta → porta abre → fade-out → `window.location.href = 'menu.html'`
+- Senha correta → porta abre → fade-out → redireciona para `menu.html`
 - Senha errada → mensagem de erro + shake, input limpo
 
 ## Status
-**Concluído e deployado.** Commitado e disponível em `https://khazaddutz.github.io/wedding-site`.
+**Concluído e deployado.** Disponível em `https://khazaddutz.github.io/wedding-site/`.
 
 ## Observações
 - Imagens do LOTR podem ter restrições de copyright — considerar tornar o repositório privado ou usar alternativas livres
