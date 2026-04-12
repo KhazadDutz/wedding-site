@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 const BASE = 'http://localhost:8181/routes/mensagens/';
+const MENU = 'http://localhost:8181/routes/menu/';
 
 // Intercepta chamadas ao Apps Script para não gerar tráfego externo
 test.beforeEach(async ({ page }) => {
@@ -59,72 +60,35 @@ test('botão enviar tem altura mínima de 44px', async ({ page }) => {
     expect(box.height).toBeGreaterThanOrEqual(44);
 });
 
-test('"Mensagem enviada" oculta ao carregar', async ({ page }) => {
-    await expect(page.locator('#success-msg')).toBeHidden();
-});
-
 // ── Validação ────────────────────────────────────────────────────────────────
 
-test('enviar sem mensagem não envia', async ({ page }) => {
+test('enviar sem mensagem não redireciona', async ({ page }) => {
     await page.locator('#send-btn').click();
-    await expect(page.locator('#success-msg')).toBeHidden();
+    await expect(page).toHaveURL(BASE);
     await expect(page.locator('#send-btn')).toBeEnabled();
 });
 
-test('enviar sem nome não envia', async ({ page }) => {
+test('enviar sem nome não redireciona', async ({ page }) => {
     await page.locator('#message-input').fill('Parabéns!');
     await page.locator('#send-btn').click();
-    await expect(page.locator('#success-msg')).toBeHidden();
+    await expect(page).toHaveURL(BASE);
     await expect(page.locator('#send-btn')).toBeEnabled();
 });
 
 // ── Fluxo de envio ───────────────────────────────────────────────────────────
 
-test('preencher mensagem e nome e enviar exibe confirmação', async ({ page }) => {
+test('preencher mensagem e nome e enviar redireciona ao menu', async ({ page }) => {
     await page.locator('#message-input').fill('Felicidades aos noivos!');
     await page.locator('#name-input').fill('Bilbo Bolseiro');
     await page.locator('#send-btn').click();
-    await expect(page.locator('#success-msg')).toBeVisible();
-    await expect(page.locator('#success-msg')).toContainText('enviada');
+    await expect(page).toHaveURL(MENU);
 });
 
-test('campos e botão ficam ocultos após envio', async ({ page }) => {
-    await page.locator('#message-input').fill('Felicidades!');
-    await page.locator('#name-input').fill('Frodo Bolseiro');
-    await page.locator('#send-btn').click();
-    await expect(page.locator('#message-input')).toBeHidden();
-    await expect(page.locator('#name-input')).toBeHidden();
-    await expect(page.locator('#send-btn')).toBeHidden();
-});
-
-test('formulário reseta após 3s', async ({ page }) => {
-    await page.clock.install();
-    await page.route('**/script.google.com/**', route =>
-        route.fulfill({ status: 200, body: '{"status":"ok"}' })
-    );
-    await page.goto(BASE);
-
-    await page.locator('#message-input').fill('Felicidades!');
-    await page.locator('#name-input').fill('Gandalf');
-    await page.locator('#send-btn').click();
-
-    await expect(page.locator('#success-msg')).toBeVisible();
-
-    await page.clock.fastForward(3100);
-
-    await expect(page.locator('#message-input')).toBeVisible();
-    await expect(page.locator('#name-input')).toBeVisible();
-    await expect(page.locator('#send-btn')).toBeVisible();
-    await expect(page.locator('#success-msg')).toBeHidden();
-    await expect(page.locator('#message-input')).toHaveValue('');
-    await expect(page.locator('#name-input')).toHaveValue('');
-});
-
-test('Enter no campo nome dispara envio', async ({ page }) => {
+test('Enter no campo nome dispara envio e redireciona', async ({ page }) => {
     await page.locator('#message-input').fill('Viva os noivos!');
     await page.locator('#name-input').fill('Aragorn');
     await page.locator('#name-input').press('Enter');
-    await expect(page.locator('#success-msg')).toBeVisible();
+    await expect(page).toHaveURL(MENU);
 });
 
 // ── Screenshots ──────────────────────────────────────────────────────────────
@@ -132,17 +96,6 @@ test('Enter no campo nome dispara envio', async ({ page }) => {
 test('screenshot — página inicial', async ({ page }, testInfo) => {
     await page.screenshot({
         path: `test-results/messages-${testInfo.project.name}.png`,
-        fullPage: false,
-    });
-});
-
-test('screenshot — após envio', async ({ page }, testInfo) => {
-    await page.locator('#message-input').fill('Felicidades!');
-    await page.locator('#name-input').fill('Samwise Gamgee');
-    await page.locator('#send-btn').click();
-    await expect(page.locator('#success-msg')).toBeVisible();
-    await page.screenshot({
-        path: `test-results/messages-success-${testInfo.project.name}.png`,
         fullPage: false,
     });
 });

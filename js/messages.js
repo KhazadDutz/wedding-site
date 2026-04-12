@@ -62,20 +62,5 @@ sendBtn.addEventListener('click', async () => {
         // no-cors retorna resposta opaca — erros de rede ignorados
     }
 
-    messageInput.style.display = 'none';
-    nameInput.style.display    = 'none';
-    sendBtn.style.display      = 'none';
-    successMsg.classList.remove('hidden');
-
-    setTimeout(resetForm, 3000);
+    window.location.href = '../menu';
 });
-
-function resetForm() {
-    messageInput.value         = '';
-    nameInput.value            = '';
-    messageInput.style.display = '';
-    nameInput.style.display    = '';
-    sendBtn.disabled           = false;
-    sendBtn.style.display      = '';
-    successMsg.classList.add('hidden');
-}
