@@ -9,26 +9,31 @@ html, body {
     width: 100%;
 }
 
-/* ===== CENA: ocupa toda a viewport, centraliza o convite ===== */
+/* ===== CENA: ocupa toda a viewport, centraliza convite + botão em coluna ===== */
 #convite-scene {
     position: fixed;
     inset: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 8px;
 }
 
 /* ===== WRAPPER — mantém o aspect ratio da imagem (1240:1748) ===== */
 /*
- * A fórmula min(100vw, calc(100dvh * 1240 / 1748)) garante que:
- *  - Em portrait: width = 100vw (limitado pela largura)
- *  - Em landscape: width = calc(100dvh * ratio) (limitado pela altura)
- * O aspect-ratio calcula a altura automaticamente.
+ * Reservamos 60px (botão RSVP + gap) da altura disponível antes de calcular
+ * a largura ideal, para que a imagem + botão caibam juntos na viewport.
+ *
+ *  - Portrait:  width limitada por 100vw
+ *  - Landscape: width = (100dvh - 60px) * ratio (limitada pela altura restante)
  */
 #convite-wrapper {
     position: relative;
+    flex-shrink: 0;
     aspect-ratio: 1240 / 1748;
-    width: min(100vw, calc(100dvh * 1240 / 1748));
+    width: min(100vw, calc((100dvh - 60px) * 1240 / 1748));
+    max-height: calc(100dvh - 60px);
 }
 
 /* ===== IMAGEM DO CONVITE ===== */
@@ -118,23 +123,18 @@ html, body {
     color: #888;
 }
 
-/* ===== BOTÃO RSVP (overlay, ~88% do topo — abaixo de "Traje: esporte fino") ===== */
+/* ===== BOTÃO RSVP (abaixo do convite, fora do wrapper) ===== */
 #rsvp-btn {
-    position: absolute;
-    left: 50%;
-    top: 88%;
-    transform: translateX(-50%);
     font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
     font-style: italic;
-    font-size: clamp(0.7rem, 2vw, 0.88rem);
+    font-size: clamp(0.78rem, 2.2vw, 0.92rem);
     letter-spacing: 0.06em;
     color: #c8a84b;
     background: rgba(4, 2, 8, 0.72);
     border: 1px solid rgba(192, 160, 96, 0.5);
     border-radius: 3px;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.4rem;
     min-height: 44px;
-    min-width: 55%;
     cursor: pointer;
     white-space: nowrap;
     touch-action: manipulation;
@@ -142,6 +142,7 @@ html, body {
     text-shadow: 0 0 10px rgba(200, 168, 75, 0.4);
     transition: color 0.3s, border-color 0.3s, background 0.3s;
     user-select: none;
+    flex-shrink: 0;
 }
 
 @media (hover: hover) {
@@ -153,7 +154,7 @@ html, body {
 }
 
 #rsvp-btn:active {
-    transform: translateX(-50%) scale(0.97);
+    transform: scale(0.97);
 }
 
 /* ===== MODAL OVERLAY ===== */
@@ -273,11 +274,21 @@ html, body {
 
 /* ===== LANDSCAPE MOBILE (altura ≤ 500px) ===== */
 @media (max-height: 500px) and (orientation: landscape) {
+    #convite-scene {
+        gap: 4px;
+    }
+
     #back-btn {
         top: 6px;
         right: 6px;
         font-size: 0.72rem;
         padding: 0.3rem 0.7rem;
+    }
+
+    #rsvp-btn {
+        font-size: 0.72rem;
+        padding: 0.3rem 1rem;
+        min-height: 36px;
     }
 
     #rsvp-modal {

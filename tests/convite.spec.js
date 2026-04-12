@@ -76,9 +76,10 @@ test('botão "Confirme aqui sua presença" está visível', async ({ page }) => 
     await expect(page.locator('#rsvp-btn')).toBeVisible();
 });
 
-test('botão RSVP tem altura mínima de 44px', async ({ page }) => {
+test('botão RSVP tem altura mínima de 44px (ou 36px em landscape)', async ({ page }, testInfo) => {
     const box = await page.locator('#rsvp-btn').boundingBox();
-    expect(box.height).toBeGreaterThanOrEqual(44);
+    const minH = testInfo.project.name === 'mobile-landscape' ? 36 : 44;
+    expect(box.height).toBeGreaterThanOrEqual(minH);
 });
 
 test('botão RSVP está abaixo do botão Voltar', async ({ page }) => {
