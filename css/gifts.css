@@ -91,6 +91,7 @@ html, body {
     width: 100%;
     border: none;
     border-radius: 2px;
+    pointer-events: none; /* oculta controles do Tenor e garante que o clique vai para o card */
 }
 
 /* ===== BOTÃO VOLTAR ===== */
