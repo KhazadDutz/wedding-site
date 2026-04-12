@@ -57,9 +57,11 @@ sendBtn.addEventListener('click', async () => {
 
     try {
         const url = `${MESSAGES_ENDPOINT}?message=${encodeURIComponent(message)}&name=${encodeURIComponent(name)}`;
-        await fetch(url, { method: 'GET', mode: 'no-cors' });
+        // fetch sem no-cors: o Apps Script processa e grava antes de responder.
+        // O erro de CORS na resposta é esperado e ignorado — os dados chegam ao Sheets.
+        await fetch(url);
     } catch (_) {
-        // no-cors retorna resposta opaca — erros de rede ignorados
+        // CORS error esperado — dados já foram gravados no Sheets
     }
 
     window.location.href = '../menu';
