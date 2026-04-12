@@ -326,6 +326,43 @@ html, body {
     80%       { transform: translateX(4px); }
 }
 
+/* ===== BOTÃO MIC ===== */
+#mic-btn {
+    background: rgba(8, 7, 15, 0.85);
+    border: 1px solid rgba(192, 160, 96, 0.45);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #c8a84b;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    flex-shrink: 0;
+    user-select: none;
+}
+
+@media (hover: hover) {
+    #mic-btn:hover {
+        border-color: rgba(192, 160, 96, 0.85);
+        box-shadow: 0 0 12px rgba(192, 160, 96, 0.25);
+    }
+}
+
+#mic-btn.listening {
+    border-color: rgba(220, 80, 80, 0.9);
+    animation: micPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes micPulse {
+    0%, 100% { box-shadow: 0 0 10px rgba(220, 80, 80, 0.4); }
+    50%       { box-shadow: 0 0 24px rgba(220, 80, 80, 0.75); }
+}
+
 /* ===== UTILITY ===== */
 .hidden { display: none !important; }
 

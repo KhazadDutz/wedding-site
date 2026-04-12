@@ -140,3 +140,59 @@ function showError() {
 function hideError() {
     errorMessage.classList.remove('visible');
 }
+
+// ===== RECONHECIMENTO DE VOZ =====
+const micBtn = document.getElementById('mic-btn');
+const SpeechAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+if (!SpeechAPI) {
+    // Browser não suporta — oculta o botão silenciosamente
+    micBtn.style.display = 'none';
+} else {
+    const recognition = new SpeechAPI();
+    recognition.lang = 'pt-BR';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 8;
+
+    let isListening = false;
+
+    micBtn.addEventListener('click', () => {
+        if (isListening) return;
+        isListening = true;
+        micBtn.classList.add('listening');
+        hideError();
+        recognition.start();
+    });
+
+    recognition.addEventListener('result', (e) => {
+        const results = e.results[0];
+        for (let i = 0; i < results.length; i++) {
+            // Normaliza: minúsculas + remove acentos (méllon → mellon)
+            const spoken = results[i].transcript
+                .toLowerCase()
+                .trim()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '');
+
+            if (VALID_WORDS.includes(spoken)) {
+                passwordInput.value = spoken;
+                fakePlaceholder.style.opacity = '0';
+                openDoor();
+                return;
+            }
+        }
+        // Nenhuma alternativa reconhecida como palavra válida
+        showError();
+    });
+
+    recognition.addEventListener('end', () => {
+        isListening = false;
+        micBtn.classList.remove('listening');
+    });
+
+    recognition.addEventListener('error', (e) => {
+        isListening = false;
+        micBtn.classList.remove('listening');
+        if (e.error !== 'aborted' && e.error !== 'no-speech') showError();
+    });
+}
