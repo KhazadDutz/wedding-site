@@ -77,18 +77,37 @@ test('enviar sem nome não redireciona', async ({ page }) => {
 
 // ── Fluxo de envio ───────────────────────────────────────────────────────────
 
-test('preencher mensagem e nome e enviar redireciona ao menu', async ({ page }) => {
+test('preencher mensagem e nome exibe confirmação antes de redirecionar', async ({ page }) => {
     await page.locator('#message-input').fill('Felicidades aos noivos!');
     await page.locator('#name-input').fill('Bilbo Bolseiro');
     await page.locator('#send-btn').click();
+    await expect(page.locator('#success-msg')).toBeVisible();
+    await expect(page.locator('#success-msg')).toContainText('enviada');
+});
+
+test('redireciona ao menu após confirmação (~2s)', async ({ page }) => {
+    await page.clock.install();
+    await page.route('**/script.google.com/**', route =>
+        route.fulfill({ status: 200, body: '{"status":"ok"}' })
+    );
+    await page.goto(BASE);
+
+    await page.locator('#message-input').fill('Felicidades!');
+    await page.locator('#name-input').fill('Frodo');
+    await page.locator('#send-btn').click();
+
+    await expect(page.locator('#success-msg')).toBeVisible();
+
+    await page.clock.fastForward(2100);
+
     await expect(page).toHaveURL(MENU);
 });
 
-test('Enter no campo nome dispara envio e redireciona', async ({ page }) => {
+test('Enter no campo nome dispara envio e exibe confirmação', async ({ page }) => {
     await page.locator('#message-input').fill('Viva os noivos!');
     await page.locator('#name-input').fill('Aragorn');
     await page.locator('#name-input').press('Enter');
-    await expect(page).toHaveURL(MENU);
+    await expect(page.locator('#success-msg')).toBeVisible();
 });
 
 // ── Screenshots ──────────────────────────────────────────────────────────────

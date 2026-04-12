@@ -64,5 +64,10 @@ sendBtn.addEventListener('click', async () => {
         // CORS error esperado — dados já foram gravados no Sheets
     }
 
-    window.location.href = '../menu';
+    messageInput.style.display = 'none';
+    nameInput.style.display    = 'none';
+    sendBtn.style.display      = 'none';
+    successMsg.classList.remove('hidden');
+
+    setTimeout(() => { window.location.href = '../menu'; }, 2000);
 });
