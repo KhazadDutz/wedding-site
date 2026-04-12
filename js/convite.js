@@ -22,7 +22,7 @@
 //
 //  3. Cole a URL gerada abaixo.
 //
-const RSVP_ENDPOINT = 'https://script.google.com/macros/s/SEU_SCRIPT_ID_AQUI/exec';
+const RSVP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxrHhI9VoRp3UHMUio6Ik2DNSAJSuBPxL7q63ByjTJNNc306RUDR515Mild4fXkI5j-uw/exec';
 // =====================================================
 
 const overlay      = document.getElementById('rsvp-overlay');
