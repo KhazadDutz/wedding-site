@@ -148,6 +148,142 @@ html, body {
     }
 }
 
+/* ===== MODAL PIX ===== */
+#pix-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
+    animation: fadeIn 0.25s ease;
+}
+
+#pix-overlay.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+#pix-modal {
+    background: #0a0710;
+    border: 1px solid rgba(192, 160, 96, 0.5);
+    border-radius: 4px;
+    padding: 1.75rem 2rem;
+    width: min(90vw, 380px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+#pix-qrcode {
+    width: min(220px, 70vw);
+    height: auto;
+    display: block;
+    border-radius: 2px;
+}
+
+#pix-copy-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#pix-code {
+    font-family: monospace;
+    font-size: clamp(0.58rem, 2vw, 0.7rem);
+    color: #a89060;
+    word-break: break-all;
+    margin: 0;
+    line-height: 1.5;
+    padding: 0.5rem 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(192, 160, 96, 0.2);
+    border-radius: 3px;
+    width: 100%;
+    box-sizing: border-box;
+    user-select: all;
+}
+
+#pix-copy-btn {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-style: italic;
+    font-size: 0.88rem;
+    letter-spacing: 0.05em;
+    color: #c8a84b;
+    background: rgba(4, 2, 8, 0.8);
+    border: 1px solid rgba(192, 160, 96, 0.45);
+    border-radius: 3px;
+    padding: 0.45rem 1.5rem;
+    min-height: 40px;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    transition: color 0.25s, border-color 0.25s, background 0.25s;
+    user-select: none;
+}
+
+@media (hover: hover) {
+    #pix-copy-btn:hover {
+        color: #f0e0b0;
+        border-color: rgba(192, 160, 96, 0.85);
+        background: rgba(4, 2, 8, 0.95);
+    }
+}
+
+#pix-copy-btn.copied {
+    color: #8fbd8f;
+    border-color: rgba(143, 189, 143, 0.5);
+}
+
+#pix-info {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-style: italic;
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+    color: #a89060;
+    margin: 0;
+    line-height: 1.5;
+}
+
+#pix-info strong {
+    color: #c8a84b;
+    font-weight: normal;
+}
+
+#pix-close-btn {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-style: italic;
+    font-size: 0.88rem;
+    letter-spacing: 0.05em;
+    color: #706050;
+    background: transparent;
+    border: 1px solid rgba(192, 160, 96, 0.2);
+    border-radius: 3px;
+    padding: 0.4rem 1.5rem;
+    min-height: 40px;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    transition: color 0.25s, border-color 0.25s;
+    user-select: none;
+}
+
+@media (hover: hover) {
+    #pix-close-btn:hover {
+        color: #c8a84b;
+        border-color: rgba(192, 160, 96, 0.5);
+    }
+}
+
 /* ===== LANDSCAPE MOBILE (altura ≤ 500px) ===== */
 @media (max-height: 500px) and (orientation: landscape) {
     #gifts-scene {
