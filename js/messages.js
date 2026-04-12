@@ -25,7 +25,7 @@
 //
 //  Cole a URL gerada abaixo.
 //
-const MESSAGES_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwTRS5fiiAvW2AZiTCfLmeE9kPjt4xHDI18GMHj1uKtXu-4DxUNnSLoMo174MLcv0aJ/exec';
+const MESSAGES_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzo0A9mqK8OiHEXRBpU2_4rD9KNZ4fYyr7rf3iErojItC7PQhKou5hRI4H128WUicSr/exec';
 // =====================================================
 
 const messageInput = document.getElementById('message-input');
