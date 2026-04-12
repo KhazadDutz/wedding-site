@@ -134,13 +134,8 @@ html, body {
 /* ===== MOBILE (≤ 480px) ===== */
 @media (max-width: 480px) {
     #gifts-scene {
-        padding: 64px 0.75rem 2rem;
-    }
-
-    #gifts-title {
-        /* evita sobreposição com o botão "Voltar" fixo no canto superior direito */
-        padding-right: 130px;
-        text-align: left;
+        /* padding-top alto o suficiente para o título ficar abaixo do botão fixo (top:12px + min-height:44px = 56px) */
+        padding: 84px 0.75rem 2rem;
     }
 
     #gifts-grid {
