@@ -90,7 +90,7 @@ html, body {
 #maps-btn {
     position: absolute;
     left: 50%;
-    top: 87%;
+    top: 86.25%;
     transform: translate(-50%, -50%);
     font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
     font-style: italic;
