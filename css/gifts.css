@@ -137,6 +137,12 @@ html, body {
         padding: 64px 0.75rem 2rem;
     }
 
+    #gifts-title {
+        /* evita sobreposição com o botão "Voltar" fixo no canto superior direito */
+        padding-right: 130px;
+        text-align: left;
+    }
+
     #gifts-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.75rem;
