@@ -91,14 +91,13 @@ html, body {
     position: absolute;
     left: 50%;
     top: 85%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
     font-style: italic;
     font-size: clamp(0.72rem, 1.8vw, 0.88rem);
     color: #c8a84b;
     text-decoration: none;
-    padding: 0.35rem 0.9rem;
-    min-height: 44px;
+    padding: 0.4rem 0.9rem;
     display: flex;
     align-items: center;
     gap: 0.3em;
