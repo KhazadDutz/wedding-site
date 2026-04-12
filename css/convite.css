@@ -90,37 +90,39 @@ html, body {
 #maps-btn {
     position: absolute;
     left: 50%;
-    top: 80%;
+    top: 85%;
     transform: translateX(-50%);
     font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
     font-style: italic;
-    font-size: clamp(0.65rem, 1.8vw, 0.82rem);
-    color: #6a6a6a;
+    font-size: clamp(0.72rem, 1.8vw, 0.88rem);
+    color: #c8a84b;
     text-decoration: none;
-    padding: 0.35rem 0.8rem;
+    padding: 0.35rem 0.9rem;
     min-height: 44px;
     display: flex;
     align-items: center;
     gap: 0.3em;
     white-space: nowrap;
+    background: rgba(4, 2, 8, 0.62);
+    border: 1px solid rgba(192, 160, 96, 0.35);
+    border-radius: 3px;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
-    opacity: 0.9;
-    transition: opacity 0.2s, color 0.2s;
+    text-shadow: 0 0 8px rgba(200, 168, 75, 0.4);
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
     user-select: none;
 }
 
 @media (hover: hover) {
     #maps-btn:hover {
-        opacity: 1;
-        color: #888;
-        text-decoration: underline;
+        color: #f0e0b0;
+        border-color: rgba(192, 160, 96, 0.75);
+        background: rgba(4, 2, 8, 0.82);
     }
 }
 
 #maps-btn:active {
-    opacity: 1;
-    color: #888;
+    color: #f0e0b0;
 }
 
 /* ===== BOTÃO RSVP (abaixo do convite, fora do wrapper) ===== */
