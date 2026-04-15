@@ -51,7 +51,6 @@ const observer = new IntersectionObserver((entries) => {
         const iframe = document.createElement('iframe');
         iframe.src             = `https://tenor.com/embed/${id}`;
         iframe.allowFullscreen = true;
-        iframe.style.aspectRatio = ratio;
 
         gifDiv.appendChild(iframe);
         observer.unobserve(gifDiv);

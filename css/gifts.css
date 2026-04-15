@@ -50,6 +50,7 @@ html, body {
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
     cursor: pointer;
+    justify-content: space-between;
 }
 
 @media (hover: hover) {
@@ -90,16 +91,17 @@ html, body {
 /* ===== GIF CONTAINER ===== */
 .gift-gif {
     width: 100%;
+    height: 150px;
     border-radius: 2px;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.04);
-    /* altura mínima enquanto o iframe ainda não carregou */
-    min-height: 80px;
+    flex-shrink: 0;
 }
 
 .gift-gif iframe {
     display: block;
     width: 100%;
+    height: 100%;
     border: none;
     border-radius: 2px;
     pointer-events: none; /* oculta controles do Tenor e garante que o clique vai para o card */
@@ -156,6 +158,10 @@ html, body {
 
     .gift-title {
         font-size: clamp(0.68rem, 3.5vw, 0.82rem);
+    }
+
+    .gift-gif {
+        height: 110px;
     }
 }
 
