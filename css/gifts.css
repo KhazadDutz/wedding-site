@@ -76,6 +76,17 @@ html, body {
     text-shadow: 0 0 8px rgba(200, 168, 75, 0.3);
 }
 
+/* ===== PREÇO DO CARD ===== */
+.gift-price {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-style: italic;
+    font-size: clamp(0.7rem, 1.3vw, 0.85rem);
+    color: #a89060;
+    letter-spacing: 0.05em;
+    text-align: center;
+    margin: 0;
+}
+
 /* ===== GIF CONTAINER ===== */
 .gift-gif {
     width: 100%;

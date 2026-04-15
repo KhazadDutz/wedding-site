@@ -87,8 +87,13 @@ async function init() {
         gifDiv.dataset.tenorId     = gift.tenor_id;
         gifDiv.dataset.aspectRatio = gift.aspect_ratio;
 
+        const price = document.createElement('p');
+        price.className   = 'gift-price';
+        price.textContent = gift.price ?? 'R$0,00';
+
         card.appendChild(title);
         card.appendChild(gifDiv);
+        card.appendChild(price);
         grid.appendChild(card);
 
         observer.observe(gifDiv);
