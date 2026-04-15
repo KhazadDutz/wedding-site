@@ -183,7 +183,7 @@ html, body {
 }
 
 #phrase {
-    font-size: clamp(0.78rem, 2vw, 1.1rem);
+    font-size: clamp(0.875rem, 2vw, 1.1rem);
     font-style: italic;
     line-height: 1.8;
     letter-spacing: 0.05em;
@@ -280,7 +280,7 @@ html, body {
     left: 50%;
     transform: translate(-50%, -50%);
     color: rgba(200, 180, 140, 0.45);
-    font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+    font-size: clamp(1rem, 2.5vw, 1.05rem);
     pointer-events: none;
     white-space: nowrap;
     letter-spacing: 0.08em;
@@ -296,7 +296,7 @@ html, body {
 
 #error-message {
     color: #c87070;
-    font-size: clamp(0.75rem, 2vw, 0.82rem);
+    font-size: clamp(0.875rem, 2vw, 0.9rem);
     font-style: italic;
     text-align: center;
     text-shadow: 0 0 10px rgba(200, 80, 80, 0.5);
@@ -380,7 +380,7 @@ html, body {
     }
 
     #phrase {
-        font-size: clamp(0.72rem, 3.5vw, 0.95rem);
+        font-size: clamp(0.875rem, 3.5vw, 0.95rem);
         line-height: 1.7;
     }
 
@@ -413,6 +413,6 @@ html, body {
 
     #phrase {
         line-height: 1.5;
-        font-size: clamp(0.7rem, 3.5vh, 0.9rem);
+        font-size: clamp(0.8rem, 3.5vh, 0.9rem);
     }
 }

@@ -68,7 +68,7 @@ html, body {
 .gift-title {
     font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
     font-style: italic;
-    font-size: clamp(0.72rem, 1.4vw, 0.88rem);
+    font-size: clamp(0.875rem, 1.4vw, 0.95rem);
     color: #c8a84b;
     letter-spacing: 0.04em;
     text-align: center;
@@ -81,7 +81,7 @@ html, body {
 .gift-price {
     font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
     font-style: italic;
-    font-size: clamp(0.7rem, 1.3vw, 0.85rem);
+    font-size: clamp(0.875rem, 1.3vw, 0.95rem);
     color: #a89060;
     letter-spacing: 0.05em;
     text-align: center;
@@ -115,7 +115,7 @@ html, body {
     z-index: 10;
     font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
     font-style: italic;
-    font-size: clamp(0.75rem, 2.5vw, 0.95rem);
+    font-size: clamp(0.875rem, 2.5vw, 0.95rem);
     color: #c8a84b;
     text-decoration: none;
     padding: 0.5rem 1rem;
@@ -157,7 +157,7 @@ html, body {
     }
 
     .gift-title {
-        font-size: clamp(0.68rem, 3.5vw, 0.82rem);
+        font-size: clamp(0.875rem, 3.5vw, 0.95rem);
     }
 
     .gift-gif {
@@ -217,7 +217,7 @@ html, body {
 
 #pix-code {
     font-family: monospace;
-    font-size: clamp(0.58rem, 2vw, 0.7rem);
+    font-size: clamp(0.7rem, 2vw, 0.78rem);
     color: #a89060;
     word-break: break-all;
     margin: 0;
@@ -234,7 +234,7 @@ html, body {
 #pix-copy-btn {
     font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
     font-style: italic;
-    font-size: 0.88rem;
+    font-size: 1rem;
     letter-spacing: 0.05em;
     color: #c8a84b;
     background: rgba(4, 2, 8, 0.8);
@@ -265,7 +265,7 @@ html, body {
 #pix-info {
     font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
     font-style: italic;
-    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
     color: #a89060;
     margin: 0;
     line-height: 1.5;
@@ -279,7 +279,7 @@ html, body {
 #pix-close-btn {
     font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
     font-style: italic;
-    font-size: 0.88rem;
+    font-size: 1rem;
     letter-spacing: 0.05em;
     color: #706050;
     background: transparent;

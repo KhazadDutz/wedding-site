@@ -63,7 +63,7 @@ html, body {
     display: block;
     font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
     font-style: italic;
-    font-size: clamp(0.95rem, 2.8vw, 1.25rem);
+    font-size: clamp(1rem, 2.8vw, 1.25rem);
     letter-spacing: 0.08em;
     color: #c8a84b;
     text-decoration: none;
@@ -173,7 +173,7 @@ html, body {
 .fool-line-2,
 .fool-line-3 {
     display: block;
-    font-size: clamp(0.95rem, 3vw, 1.5rem);
+    font-size: clamp(1rem, 3vw, 1.5rem);
     font-style: italic;
     color: #c8a84b;
     letter-spacing: 0.06em;
