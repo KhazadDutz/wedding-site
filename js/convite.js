@@ -23,6 +23,10 @@
 //  3. Cole a URL gerada abaixo.
 //
 const RSVP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxrHhI9VoRp3UHMUio6Ik2DNSAJSuBPxL7q63ByjTJNNc306RUDR515Mild4fXkI5j-uw/exec';
+
+// Endpoint da aba Churrasco (Planilha: 1AlGtHwRDCyuvT_qgXBTiMf58_e4phxg-zTyZvUXGOpk)
+// Após implantar o Apps Script abaixo, cole a URL aqui:
+const CHURRASCO_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzqzQIuzbJtr0J0fQMnk1pI5fqLbmj2dUhMPN7kABUftAryYBvR2C7gfvoy-xMzskRK/exec';
 // =====================================================
 
 const overlay      = document.getElementById('rsvp-overlay');
@@ -64,7 +68,7 @@ confirmBtn.addEventListener('click', async () => {
     // Usa no-cors: o servidor recebe a requisição mas a resposta é opaca.
     // A confirmação é exibida de forma otimista após o envio.
     try {
-        const url = `${RSVP_ENDPOINT}?name=${encodeURIComponent(name)}`;
+        const url = `${CHURRASCO_ENDPOINT}?name=${encodeURIComponent(name)}`;
         await fetch(url, { method: 'GET', mode: 'no-cors' });
     } catch (_) {
         // Ignora erros de rede — no-cors retorna resposta opaca sem lançar
