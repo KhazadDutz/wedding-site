@@ -23,7 +23,7 @@
 //  3. Cole a URL gerada abaixo.
 //
 // Endpoint da aba Cerimônia
-const RSVP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwlBm3dsK2WqL662NNLpYNGCYVeGLP61U7IX8a-JeIaU87FFNUflyVhkd6P_4QJ5n7lRg/exec';
+const RSVP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzpdgXLMb6-13h2XJYlMQsxZhqQh3WxScXKZuvMrvjhvVzX00T39LNcjJCir4BMi45T1g/exec';
 // =====================================================
 
 const overlay      = document.getElementById('rsvp-overlay');
